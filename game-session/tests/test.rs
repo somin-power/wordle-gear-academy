@@ -13,7 +13,7 @@ fn test() {
 
     let proxy_program = Program::current(&system);
 
-    let target_program = Program::from_file(&system, "../target/wasm32-unknown-unknown/release/wordle.opt.wasm");
+    let target_program = Program::from_file(&system, "../target/wasm32-unknown-unknown/debug/wordle.opt.wasm");
     let result = target_program.send_bytes(USER, []);
     assert!(!result.main_failed());
 
