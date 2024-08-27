@@ -13,7 +13,7 @@ fn test() {
 
     let proxy_program = Program::current(&system);
 
-    let target_program = Program::from_file(&system, "../wordle-program/target/wasm32-unknown-unknown/debug/wordle.opt.wasm");
+    let target_program = Program::from_file(&system, "../target/wasm32-unknown-unknown/release/wordle.opt.wasm");
     let result = target_program.send_bytes(USER, []);
     assert!(!result.main_failed());
 
@@ -49,7 +49,7 @@ fn test() {
     assert_eq!(state.game_status, GameStatus::InProgress);
     assert_eq!(state.session_status, SessionStatus::Waiting);
 
-    let result = system.spend_blocks( 200);
+    let result = system.spend_blocks(200);
     let state: GameState = wordle_program.expect("REASON").read_state(StateQuery::GetGameState).expect("Unexpected invalid state.");
     assert_eq!(state.game_status, GameStatus::NotStarted);
     assert_eq!(state.session_status, SessionStatus::Waiting);
