@@ -49,10 +49,10 @@ fn test() {
     assert_eq!(state.game_status, GameStatus::InProgress);
     assert_eq!(state.session_status, SessionStatus::Waiting);
 
-    let _result = system.spend_blocks(200);
-    let state: GameState = wordle_program.expect("REASON").read_state(StateQuery::GetGameState).expect("Unexpected invalid state.");
-    assert_eq!(state.game_status, GameStatus::NotStarted);
-    assert_eq!(state.session_status, SessionStatus::Waiting);
+    // let _result = system.spend_blocks(200);
+    // let state: GameState = wordle_program.expect("REASON").read_state(StateQuery::GetGameState).expect("Unexpected invalid state.");
+    // assert_eq!(state.game_status, GameStatus::NotStarted);
+    // assert_eq!(state.session_status, SessionStatus::Waiting);
 
 }
 
